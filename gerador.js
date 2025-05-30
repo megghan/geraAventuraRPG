@@ -100,17 +100,18 @@ function gerarAventura() {
   const complic = complicacao[Math.floor(Math.random() * complicacao.length)];
 
   const listaEnvolvimentos = [local, objetivo, complic];
-  const envolvimentoAleatorio = listaEnvolvimentos[Math.floor(Math.random() * listaEnvolvimentos.length)];
+  
 
-  const npc = gerarNPC(envolvimentoAleatorio);
+  const npc1 = gerarNPC(listaEnvolvimentos[Math.floor(Math.random() * listaEnvolvimentos.length)]);
+  const npc2 = gerarNPC(listaEnvolvimentos[Math.floor(Math.random() * listaEnvolvimentos.length)]);
 
   const aventura = `A aventura acontece em ${local}, o objetivo é ${objetivo}, mas há um problema: ${complic}.`;
 
-  return { aventura, npc };
+  return { aventura, npc1, npc2 };
 }
 
 document.getElementById("gerarBtn").addEventListener("click", () => {
   const resultado = gerarAventura();
   document.getElementById("aventuraTexto").textContent = resultado.aventura;
-  document.getElementById("npcTexto").textContent = resultado.npc;
+  document.getElementById("npcTexto").textContent = resultado.npc1+"; "+resultado.npc2;
 });

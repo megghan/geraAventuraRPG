@@ -94,7 +94,7 @@ function gerarNPC(envol) {
   return `${nome}, aparência: ${aparencia}, envolvid@ com ${envol}`;
 }
 
-function gerarAventura() {
+export function gerarAventura() {
   const local = locais[Math.floor(Math.random() * locais.length)];
   const objetivo = objetivos[Math.floor(Math.random() * objetivos.length)];
   const complic = complicacao[Math.floor(Math.random() * complicacao.length)];
@@ -110,8 +110,3 @@ function gerarAventura() {
   return { aventura, npc1, npc2 };
 }
 
-document.getElementById("gerarBtn").addEventListener("click", () => {
-  const resultado = gerarAventura();
-  document.getElementById("aventuraTexto").textContent = resultado.aventura;
-  document.getElementById("npcTexto").textContent = resultado.npc1+"; "+resultado.npc2;
-});
